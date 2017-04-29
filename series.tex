@@ -1,0 +1,383 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{upgreek}
+
+\begin{document}
+
+\section{Sequ\^encias}
+
+Sequ\^encias s\~ao listas ordenadas inifinitas de n\'umeros. \\
+Denota-se:
+\[ 1,\, \frac{1}{2},\, \frac{1}{3},\, \frac{1}{4},\, \hdots = {\left(\frac{1}{n}\right)}_{n=1}^\infty \]
+
+\subsection{Limite de Sequ\^encias}
+Teorema: Sequ\^encias que convergem possuem um limite. \\[5pt]
+Para ${(a_n)}_{n=1}^\infty$ denota-se $\lim\limits_{n\to\infty} a_n$ \\[5pt]
+\begin{tabbing}
+  Exemplos: \=$\lim\limits_{n\to\infty} \frac{1}{n} = 0$ \\[5pt]
+  \>$\lim\limits_{n\to\infty} \frac{n+3}{n} = 1$
+\end{tabbing}
+O limite de uma sequ\^encia constante \'e o termo constante.
+
+\subsubsection{Propriedades do Limite}
+Sejam ${(a_n)}_{n=1}^\infty$ e ${(b_n)}_{n=1}^\infty$ convergentes, ent\~ao:
+\begin{align*}
+  &\lim_{n\to\infty}(a_n + b_n) = \lim_{n\to\infty} a_n + \lim_{n\to\infty} b_n& \\
+  &\lim_{n\to\infty}(a_n - b_n) = \lim_{n\to\infty} a_n - \lim_{n\to\infty} b_n& \\[5pt]
+  &\lim_{n\to\infty}(c \cdot a_n) = c \cdot \lim_{n\to\infty} a_n& \\
+  &\lim_{n\to\infty}(a_n \cdot b_n) = \lim_{n\to\infty} a_n \cdot \lim_{n\to\infty} b_n& \\[5pt]
+  &\lim_{n\to\infty} f(a_n) = f\left(\lim_{n\to\infty} a_n\right) \quad \text{se $f(x)$ \'e cont\a'inua.}& \\
+  &\lim_{n\to\infty} a_n = \lim_{x\to\infty} f(x) \quad \text{se $a_n = f(n)$ e $\lim_{n\to\infty} f(n)$ existe.}&
+\end{align*}
+
+
+
+\section{S\'eries}
+
+Uma s\'erie \'e denotada por $\sum\limits_{n=0}^\infty a_n = a_0 + a_1 + a_2 + \hdots$ \\
+A m-\'esima soma parcial de uma s\'erie $\sum\limits_{n=0}^\infty a_n$ \'e definida por:
+\[ S_m = a_0 + a_1 + \hdots + a_m = \sum\limits_{n=0}^m a_n \]
+\begin{tabbing}
+  Teorema: \=Se a sequ\^encia das somas parciais de uma s\a'erie converge, ent\~ao a s\a'erie converge equivalendo ao limite \\
+  \> da sequ\^encia. Caso contr\a'ario, a s\a'erie diverge.
+\end{tabbing}
+
+
+
+\newpage
+\section{S\'erie Geom\'etrica}
+
+Uma s\'erie geom\'etrica \'e uma s\'erie formada por uma progress\~ao geom\'etrica de raz\~ao \underline{r}.
+\[ \sum_{n=0}^\infty r^n = 1 + r + r^2 + r^3 + \hdots \]
+\subsection{Soma da S\'erie Geom\'etrica}
+A soma parcial de uma s\'erie geom\'etrica \'e: \\
+
+Para $r = 1$:
+\[ \sum_{n=0}^m 1^n = \sum_{n=0}^m 1 = m \]
+
+Para $r \neq 1$:
+\begin{align*}
+  S_m &= 1 + r + r^2 + r^3 + \hdots + r^m \\
+  r \cdot S_m &= 1 + r + r^2 + r^3 + \hdots + r^m + r^{m+1}
+\end{align*}
+\begin{gather*}
+  S_m - r \cdot S_m = 1 - r^{m+1} \\
+  S_m \cdot (1 - r) = 1 - r^{m+1} \\
+  \therefore \\
+  S_m = \frac{1 - r^{m+1}}{1 - r}
+\end{gather*}
+\\
+Portanto, o limite da sequ\^encia das somas parcias \'e: \\[-5pt]
+\begin{minipage}{.5\textwidth}
+  \begin{alignat*}{2}
+    &\text{Para $r = 1$}   &&: \lim_{m\to\infty} m = \infty \\[5pt]
+    &\text{Para $r = -1$}  &&: \lim_{m\to\infty} \frac{1 - {(-1)}^{m+1}}{1 - (-1)} \therefore \text{divergente} \\[5pt]
+    &\text{Para $|r| < 1$} &&: \lim_{m\to\infty} \frac{1 - r^{m+1}}{1 - r} = \frac{1}{1 - r} \\[5pt]
+    &\text{Para $r > 1$}   &&: \lim_{m\to\infty} \frac{1 - r^{m+1}}{1 - r} = \frac{1 - \infty}{1 - r} = \infty \\[5pt]
+    &\text{Para $r < -1$}  &&: \lim_{m\to\infty} \frac{1 - r^{m+1}}{1 - r} \therefore \text{divergente}
+  \end{alignat*}
+\end{minipage} \\[10pt]
+Resultando em:\\[-5pt]
+\begin{minipage}{.3\textwidth}
+  \begin{alignat*}{2}
+    &\text{Para $r = 1$}   &&: \infty \\
+    &\text{Para $r = -1$}  &&: \text{divergente} \\
+    &\text{Para $|r| < 1$} &&: \frac{1}{1 - r} \\
+    &\text{Para $r > 1$}   &&: \infty \\
+    &\text{Para $r < -1$}  &&: \text{divergente}
+  \end{alignat*}
+\end{minipage}
+
+
+
+\newpage
+\section{Converg\^encia e Diverg\^encia}
+
+\begin{tabbing}
+  Teorema: \=Seja uma s\a'{e}rie $\sum\limits_{n=0}^\infty a_n$ \\[5pt]
+  \>Se $\lim\limits_{n\to\infty} a_n \neq 0$, a s\a'{e}rie diverge. \\[5pt]
+  \>Se a s\a'{e}rie converge, ent\~ao $\lim\limits_{n\to\infty} a_n = 0$ \quad\{o oposto n\~ao vale\}
+\end{tabbing}
+
+\subsection{Teste da Integral}
+
+\begin{tabbing}
+  Teorema: \=Seja uma s\a'erie $\sum\limits_{n=0}^\infty$ com todos termos positivos, e uma fun\c{c}\~ao $f(x)$ que interpola os termos desta s\a'erie \\
+  \> Se $\int\limits_1^\infty f(x)\,dx = \infty$, ent\~ao a s\a'erie diverge para $\infty$. \\
+  \> Se $\int\limits_1^\infty f(x)\,dx < \infty$, ent\~ao a s\a'erie converge.
+\end{tabbing}
+\begin{tabbing}
+  Exemplo: \=Denomina-se s\a'erie-P a seguinte s\a'erie: $\sum\limits_{n=1}^\infty \frac{1}{n^p}$ onde $p > 0$ \\[5pt]
+  \> Para $p = 1$, obtemos a s\a'erie harm\^onica $\sum\limits_{n=1}^\infty \frac{1}{n}$, que diverge. \\[5pt]
+  \> Para $p \neq 1$, seja $f(x) = \frac{1}{x^p}$ a fun\c{c}\~ao que interpola os termos da s\a'erie: \\
+  \>\begin{minipage}{1\textwidth}
+      \begin{align*}
+        \uplambda = \int\limits_1^\infty x^{-p}\,dx &= \frac{x^{-p+1}}{-p+1} \Bigg|_1^\infty & \\[5pt]
+        \uplambda &= \lim_{x\to\infty} \frac{x^{-p+1}}{-p+1} - \frac{1^{-p+1}}{-p+1} \\[5pt]
+        \uplambda &= \lim_{x\to\infty} \frac{x^{-p+1} - 1}{-p+1}
+      \end{align*}
+      Para $p<1$, $(1-p) > 0$:
+      \begin{align*}
+        \uplambda &= \lim_{x\to\infty} \frac{x^{-p+1} - 1}{-p+1} &\\[5pt]
+        &= \frac{\infty - 1}{-p+1} = \infty
+      \end{align*}
+      \qquad Portanto, a s\a'erie diverge. \\[5pt]
+      Para $p>1$, $(1-p) < 0$:
+      \begin{align*}
+        \uplambda &= \lim_{x\to\infty} \frac{1}{x^{|-p+1|} \cdot (-p+1)} - \frac{1^{-p+1}}{-p+1} &\\[5pt]
+        &= \frac{1}{\infty \cdot (-p + 1)} - \frac{1}{-p + 1} \\[5pt]
+        &= \frac{1}{-\infty} - \frac{1}{-p + 1} \\[5pt]
+        &= \frac{1}{-p + 1}
+      \end{align*}
+      \qquad Como $\frac{1}{-p+1} < \infty$, a s\a'erie converge.
+    \end{minipage}
+\end{tabbing}
+
+
+
+\newpage
+\section{Estimativas de Somas}
+
+O erro contido em uma estimativa de soma $S_m$ \'e:
+\[ R_m = S - S_m = \sum_{n=m+1}^\infty a_m \]
+Portanto:
+\[ \int\limits_{m+1}^\infty f(x)\,dx \leq R_m \leq \int\limits_m^\infty f(x)\,dx \qquad \text{onde $f(x)$ interpola os pontos da s\'erie.} \]
+Exemplo:
+\[ \sum_{n=1}^\infty \frac{1}{n^4} \] \\[-10pt]
+
+A s\'erie \'e convergente como demonstrado pelo teste da integral: ($\frac{1}{3} < \infty$)
+\begin{align*}
+  \int\limits_1^\infty \frac{1}{x^4}\,dx &= \int\limits_1^\infty x^{-4}\,dx \\[5pt]
+  &= \frac{-1}{3x^3}\bigg|_1^\infty \\[5pt]
+  &= 0 - \frac{-1}{3} = \frac{1}{3}
+\end{align*}
+
+Estimativa do resto usando o teste da integral:
+\begin{align*}
+  R_m \leq \int\limits_m^\infty \frac{1}{x^4}\,dx &= \frac{-1}{3x^3} \bigg|_m^\infty \\
+  &=\frac{1}{3m^3}
+\end{align*}
+\begin{alignat*}{2}
+  R_1: |S - S_1| &= |S - 1| \hspace{35pt}&& \leq \quad \frac{1}{3 \cdot 1^3} = \frac{1}{3} \\[10pt]
+  R_2: |S - S_2| &= |S - (1 + \frac{1}{16})| \\
+  &= |S - \frac{17}{16}| \hspace{35pt}&& \leq \quad \frac{1}{3 \cdot 2^3} = \frac{1}{24}
+\end{alignat*}
+
+Calculo de $m$ que satisfa\c{c}a $R_m < \frac{1}{10000}$:
+\begin{align*}
+  \frac{1}{3m^3} &< \frac{1}{10000} \\[10pt]
+  m^3 &> \frac{10000}{3} \\[10pt]
+  m\phantom{^3} &> \sqrt[3]{\frac{10000}{3}}
+\end{align*}
+
+
+
+\section{Teste da Compara\c{c}\~ao}
+
+Teorema: Seja $\sum\limits_{n=1}^\infty a_n$ e $\sum\limits_{n=1}^\infty b_n$ tal que $\forall n: b_n \geq a_n > 0$, ent\~ao:
+\begin{gather*}
+  \sum\limits_{n=1}^\infty b_n < \infty \Rightarrow \sum\limits_{n=1}^\infty a_n < \infty \\
+  \sum\limits_{n=1}^\infty a_n = \infty \Rightarrow \sum\limits_{n=1}^\infty b_n = \infty
+\end{gather*}
+Exemplos:
+
+Seja $a_n = \frac{1}{n^4 + 3n^3 + 5n^2 + n + 5}$, $\sum\limits_{n=1}^\infty a_n$ converge pois $\forall n: a_n < \frac{1}{n^4}$, e $\sum\limits_{n=1}^\infty \frac{1}{n^4}$ converge pelo teste da integral. \\
+
+$\sum\limits_{n=1}^\infty \frac{\ln n}{n}$ diverge, pois $\forall n \geq 3: \frac{1}{n} < \frac{\ln n}{n}$, e $\sum\limits_{n=1}^\infty \frac{1}{n}$ diverge.
+
+\subsection{Teste da Compara\c{c}\~ao no Limite}
+Teorema: Seja $\sum\limits_{n=1}^\infty a_n$ e $\sum\limits_{n=1}^\infty b_n$ tal que $\forall n: a_n > 0 \land b_n > 0$, ent\~ao:
+\[ \lim_{n\to\infty} \frac{a_n}{b_n} > 0 \Rightarrow \text{ambas convergem ou ambas divergem.} \]
+
+
+
+\section{Teorema das Sequ\^encias Mon\'otonas}
+
+\subsection{Sequ\^encias Mon\'otonas}
+Uma sequ\^encia ${(a_n)}_{n=1}^\infty$ \'e mon\'otona se:
+\begin{align*}
+  &\forall n: a_n \geq a_{n+1} \qquad \text{\{crescente\}} \\
+  &\text{ou}\\
+  &\forall n: a_n \leq a_{n+1} \qquad \text{\{decrescente\}}
+\end{align*}
+
+\subsection{Sequ\^encias Limitadas}
+Uma sequ\^encia \'e limitada se:
+\begin{gather*}
+  \forall n: \exists M > 0: |a_n| < M \\
+  \text{ou seja:} \\
+  \forall n: -M < a_n < M
+\end{gather*} \\[-5pt]
+Exemplo: $a_n = \frac{\sin n}{n}$ \'e limitada pois $\forall x \in \mathbb{N}: |\sin x| \leq 1$, portanto $-1 \leq a_n \leq 1$.
+
+\subsection{Teorema}
+Se uma sequ\^encia \'e mon\'otona e limitada, ent\~ao ela \'e convergente.
+
+
+
+\newpage
+\section{S\'eries Alternadas}
+Uma s\'erie $\sum\limits_{n=0}^\infty a_n$ \'e alternada se:
+\[ \forall n: a_n \cdot a_{n+1} < 0\]
+\begin{tabbing}
+  Teorema: \=Se uma s\a'{e}rie $\sum\limits_{n=0}^\infty a_n$ \a'{e} alternada, $|a_n|$ \a'{e} uma sequ\^encia mon\a'{o}tona \underline{decrescente} e $\lim\limits_{n\to\infty} |a_n| = 0$, \\
+  \>ent\~ao a s\a'{e}rie converge.
+\end{tabbing}
+
+\begin{tabbing}
+  Exemplo: \= $\sum\limits_{n=0}^\infty \frac{{(-1)}^n}{n}$ \a'{e} alternada \\[5pt]
+  \> $|\frac{{(-1)}^n}{n}| = \frac{1}{n} \Rightarrow$ mon\a'{o}tona decrescente \\[5pt]
+  \> $\lim\limits_{n\to\infty} \frac{1}{n} = 0$ \\[5pt]
+  \> Portanto, a s\a'{e}rie converge.
+\end{tabbing}
+
+
+
+\section{Converg\^encia Absoluta}
+
+Dizemos que $\sum\limits_{n=0}^\infty a_n$ converge absolutamente se $\sum\limits_{n=0}^\infty |a_n|$ converge. \\
+\begin{tabbing}
+  Exemplos: \=$\sum\limits_{n=0}^\infty \frac{{(-1)}^n}{n^2}$ \a'{e} absolutamente convergente pois $\sum\limits_{n=0}^\infty \frac{1}{n^2}$ converge. \\
+  \> $\sum\limits_{n=0}^\infty \sin n$ n\~ao \a'{e} absolutamente convergente pois $\sum\limits_{n=0}^\infty |\sin n|$ diverge. \\
+  \> $\sum\limits_{n=0}^\infty \frac{{(-1)}^n}{n}$ n\~ao \a'{e} absolutamente convergente pois $\sum\limits_{n=0}^\infty \frac{1}{n}$ diverge. \\
+\end{tabbing}
+Teorema: Se uma s\'erie \'e absolutamente convergente, ent\~ao ela \'e convergente.
+\begin{tabbing}
+  Obs: \=Quando uma s\a'{e}rie converge, mas sem ser absolutamente convergente, \\
+  \> dizemos que a s\a'{e}rie \a'{e} condicionalmente convergente.
+\end{tabbing}
+
+\subsection{Testes da Raz\~ao e da Raiz}
+Suponha que uma s\'erie satisfa\c{c}a $|a_n| \approx R^n$
+\begin{itemize}
+  \item Se $R < 1$, esperamos que a s\'erie seja absolutamente convergente.
+  \item Se $R > 1$, esperamos que a s\'erie diverja.
+\end{itemize}
+
+\subsubsection{Teste da Raz\~ao}
+Teorema: Se $\sum\limits_{n=0}^\infty a_n$ \'e tal que $\lim\limits_{n\to\infty} \frac{|a_{n + 1}|}{|a_n|} = L$, ent\~ao:
+\begin{itemize}
+  \item Se $L < 1$, a s\'erie \'e absolutamente convergente.
+  \item Se $L > 1$, a s\'erie \'e divergente.
+  \item Se $L = 1$, o teste \'e inconclusivo.
+\end{itemize}
+
+\subsubsection{Teste da Raiz}
+Teorema: Se $\sum\limits_{n=0}^\infty a_n$ \'e tal que $\lim\limits_{n\to\infty} \sqrt[n]{|a_n|} = L$, ent\~ao:
+\begin{itemize}
+  \item Se $L < 1$, a s\'erie \'e absolutamente convergente.
+  \item Se $L > 1$, a s\'erie \'e divergente.
+  \item Se $L = 1$, o teste \'e inconclusivo.
+\end{itemize}
+
+
+
+\section{S\'eries de Pot\^encias}
+
+Uma express\~ao da seguinte forma \'e denominada s\'erie de pot\^encias:
+\begin{align*}
+  & \sum_{n=0}^\infty c_n \cdot {(x - a)}^n = c_0 + c_1 \cdot (x - a) + c_2 \cdot {(x - a)}^2 + \hdots & \\
+  & \quad c_n: \text{coeficiente} \\
+  & \quad x: \text{vari\'avel} \\
+  & \quad a: \text{centro}
+\end{align*}
+Exemplo: Para $c_n = \frac{1}{n + 1}$ e $a = -3$, a s\'erie de pot\^encias \'e:
+\[ \sum_{n=0}^\infty \frac{1}{n + 1} \cdot {(x + 2)}^n \]
+Teorema: O conjunto de valores de $x$ onde uma s\'erie de pont\^encias converge \'e um dos seguintes:
+\begin{itemize}
+  \item $\mathbb{R}$
+  \item $\{a\}$
+  \item $(a - \alpha, a + \alpha)$, $\alpha > 0$ \qquad onde $\alpha$ \'e o raio de converg\^encia.
+\end{itemize}
+\begin{tabbing}
+  Teorema: \=Se $\sum\limits_{n=0}^\infty c_n \cdot {(x - a)}^n$ tem raio de converg\^encia maior que zero, e seja \\[0pt]
+  \>\begin{minipage}{0.5\textwidth}
+      \[ f(x) = \sum_{n=0}^\infty c_n \cdot {(x - a)}^n \]
+      para $x$ no intervalo de converg\^encia da s\'erie, ent\~ao:
+      \begin{alignat*}{2}
+        &f'(x) = \sum_{n=1}^\infty n \cdot c_n \cdot {(x - a)}^{n - 1} && \quad \text{para $x$ no interior do invervalo de converg\^encia.} \\
+        &\int_c^d f(x)\,dx = \sum_{n=0}^\infty (c_n \cdot \int_c^d {(x - a)}^n\,dx) && \quad \text{se $c$ e $d$ est\~ao no interior do intervalo de converg\^encia.}
+      \end{alignat*}
+    \end{minipage}
+\end{tabbing}
+
+
+
+\newpage
+\section{S\'eries de Taylor}
+
+A s\'erie de Taylor, com centro $a$, de $f(x)$ \'e:
+\begin{equation*}
+  \sum_{n=0}^{\infty}\frac{f^{[n]}(a)}{n!} \cdot {(x - a)}^n
+  \qquad\text{onde $[n]$ indica a $n$-\'esima derivada de $f$.}
+\end{equation*}
+Quando $a=0$, a s\'erie denomina-se s\'erie de \textit{Maclaurin}. \\[10pt]
+Exemplo: \\[-5pt]
+
+Se $f(x) = \sin x$, sua s\'erie de Maclaurin \'e:
+\begin{table}[h]
+  \qquad
+  \begin{tabular}{cc}
+    \begin{minipage}{0.25\textwidth}
+      \begin{flushleft}
+        \begin{tabular}{|c|c|c|}
+          \hline
+          \rule{0pt}{2.5ex}n & $f^{[n]}(x)$ & $f^{[n]}(0)$ \\
+          \hline
+          0 & $\sin x$  & 0  \\
+          1 & $\cos x$  & 1  \\
+          2 & $-\sin x$ & 0  \\
+          3 & $-\cos x$ & -1 \\
+          4 & $\sin x$ & 0 \\
+          $\vdots$ & $\vdots$ & $\vdots$ \\
+          \hline
+        \end{tabular}
+      \end{flushleft}
+    \end{minipage}
+    &
+    \begin{minipage}{0.45\textwidth}
+      \begin{gather*}
+        0 + 1x + \frac{0}{2!} \cdot x^2 + \frac{-1}{3!} \cdot x^3 + \hdots \\[5pt]
+        = \sum_{n=0}^{\infty} \frac{{(-1)}^m}{(2m + 1)!} \cdot x^{2m + }1
+      \end{gather*}
+    \end{minipage}
+  \end{tabular}
+\end{table}
+
+
+\subsection{Polin\^omio de Taylor}
+
+O polin\^omio de Taylor centrado em $a$, de grau $N$, de $f(x)$ \'e:
+\[\sum_{n=0}^N \frac{f^{[n]}(a)}{n!} \cdot {(x - a)}^n \quad = \quad f(a) + f'(a)\cdot(x - a) + \frac{f''(a) \cdot {(x - a)}^2}{2!} + \hdots\]
+Denota-se $P_{N,a}(x)$. \\[10pt]
+Exemplo:
+
+Para $f(x) = \sin x$:
+\begin{align*}
+  & P_{1,0}(x) = x \\
+  & P_{2,0}(x) = x + \frac{0}{2!} \cdot x^2 = x \\
+  & P_{3,0}(x) = x - \frac{x^3}{3!}
+\end{align*}
+
+\subsection{Resto de Taylor}
+
+Considerando $\sum\limits_{n=0}^{\infty} \frac{f^{[n]}(a)}{n!} \cdot {(x - a)}^n = \lim\limits_{n\to\infty} P_{N,a}$, definimos o resto de Taylor:
+\[ R_{N,a}(x) = f(x) - P_{N,a}(x) \]
+\\
+Teorema: Se $\lim\limits_{N\to\infty} R_{N,a} = 0$, a s\'erie de Taylor de $f(x)$ converge para $f(x)$.
+
+\subsection{Desigualdade de Taylor}
+
+\begin{tabbing}
+Teorema: \=Seja $M_n > 0$, $d > 0$, $x \in (a - d, a + d)$. \\[5pt]
+\>Se $|f^{[N + 1]}(x)| \leq M_n$, ent\~ao:
+\end{tabbing}
+\[ |R_{N,a}(x)| \leq \frac{M_n \cdot {|x - a|}^{N+1}}{(N+1)!} \]
+
+
+\end{document}
