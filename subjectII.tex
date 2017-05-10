@@ -11,6 +11,8 @@
 
 \pgfplotsset{compat=1.11}
 \usetikzlibrary{decorations.markings}
+\usetikzlibrary{3d}
+\usetikzlibrary{shapes.geometric,decorations.fractals,shadows}
 \usepgfplotslibrary{polar}
 
 
@@ -63,7 +65,7 @@ O respectivo vale para curvas no espa\c{c}o.
         ]
         \addplot3+ [
           domain    = 0:2*pi,
-          samples   = 400,
+          samples   = 100,
           samples y = 0,
           mark      = none,
           red,
@@ -94,7 +96,7 @@ O respectivo vale para curvas no espa\c{c}o.
         ]
         \addplot3+ [
           domain     = 0:14.7*pi,
-          samples    = 400,
+          samples    = 300,
           samples y  = 0,
           mark       = none,
           red,
@@ -360,36 +362,158 @@ Uma curva polar \'e definida por uma equa\c{c}\~ao entre as coordenadas polares 
 
 
 \pagebreak
-\section{Superf\'icies}
+\section{Superf\a'icies}
 Qual \'e o conjunto solu\c{c}\~ao da equa\c{c}\~ao $x^2 + y^2 + z^2 = 4$? \\[5pt]
 Resposta: uma esfera de raio 2 centrada na origem. \\[5pt]
-\centerline{|sphere graph here|}
+\centerline{|Uncomment here|}
+%% \begin{figure}[h]
+%%   \centering
+%%   \begin{tikzpicture}
+%%     \begin{axis}[%
+%%         view/h = 45,
+%%         axis equal,
+%%         width=10cm,
+%%         height=10cm,
+%%         axis lines = center,
+%%         xlabel = {$x$},
+%%         ylabel = {$y$},
+%%         zlabel = {$z$},
+%%         ticks=none,
+%%         enlargelimits=0.3,
+%%       ]
+%%       \addplot3[%
+%%         opacity = 0.5,
+%%         surf,
+%%         z buffer = sort,
+%%         samples = 50,
+%%         variable = \u,
+%%         variable y = \v,
+%%         domain = 0:180,
+%%         y domain = 0:360,
+%%       ]
+%%       ({cos(u)*sin(v)}, {sin(u)*sin(v)}, {cos(v)});
+%%     \end{axis}
+%%   \end{tikzpicture}
+%% \end{figure}
 
-\subsection{Estrat\'egias de esbo\c{c}o de superf\'icies no espa\c{c}o}
-Identificar sua interse\c{c}\~ao com planos (cortes) que cobrem todo o espa\c{c}o. \\[5pt]
+
+\subsection{Estrat\'egias de esbo\c{c}o de superf\a'icies no espa\c{c}o}
+Identificar sua interse\c{c}\~ao com planos (cortes) que cobrem todo o espa\c{c}o. \\[-10pt]
 \begin{tabbing}
-  Exemplo: \= Elips\'oide $S = \{ (x, y, z) \in \mathbb{R}^3 | \dfrac{x^2}{25} + \dfrac{y^2}{4} + \dfrac{z^2}{9} = 1 \}$ \\[5pt]
+  Exemplo: \= $S = \left\{ (x, y, z) \in \mathbb{R}^3 \enspace \bigg| \enspace \dfrac{x^2}{25} + \dfrac{y^2}{4} + \dfrac{z^2}{9} = 1 \right\}$ \\[5pt]
   \> Cortes horizontais: \\[-5pt]
   \>\begin{minipage}{.5 \textwidth}
     \begin{align*}
       C_h &= S \cap \Pi_h\{ \text{Plano horizontal de altura $h$} \} \\
-      &= S \cap \Pi_h\left\{ (x, y, z) \in \mathbb{R}^3 \big| z = h \right\} \\
-      &= \left\{ (x, y, z) \in \mathbb{R}^3 \Bigg| \dfrac{x^2}{25} + \dfrac{y^2}{4} + \dfrac{h^2}{9} = 1 \right\}
+      &= S \cap \Pi_h\left\{ (x, y, z) \in \mathbb{R}^3 \enspace \big| \enspace z = h \right\} \\
+      &= \left\{ (x, y, z) \in \mathbb{R}^3 \enspace \bigg| \enspace \dfrac{x^2}{25} + \dfrac{y^2}{4} + \dfrac{h^2}{9} = 1 \right\}
     \end{align*}
-  \end{minipage}
+  \end{minipage}\\
+  \> Para\\[-10pt]
+  \>\quad\begin{minipage}{.35 \textwidth}
+    \begin{alignat*}{2}
+      &h > 3   \enspace &&: \enspace S \cap \Pi_h = \varnothing \\[5pt]
+      &h = 3   \enspace &&: \enspace S \cap \Pi_3 = \left\{ (0,0,3) \right\} \\[5pt]
+      &h < -3  \enspace &&: \enspace S \cap \Pi_h - \varnothing \\[5pt]
+      &h = -3  \enspace &&: \enspace S \cap \Pi_{-3} = \left\{ (0,0,-3) \right\} \\[5pt]
+      &|h| < 3 \enspace &&: \enspace S \cap \Pi_h \\[-5pt]
+      & &&: \enspace \text{Plano xz} \rightarrow S \cap \left\{ y = 0 \right\} \Rightarrow \left\{ (x, 0, z) \in \mathbb{R}^3 \enspace \bigg| \enspace \dfrac{x^2}{25} + \dfrac{z^2}{9} = 1 \right\} \therefore \text{Elipse} \\
+      & &&: \enspace \text{Plano yz} \rightarrow S \cap \left\{ x = 0 \right\} \Rightarrow \left\{ (0, y, z) \in \mathbb{R}^3 \enspace \bigg| \enspace \dfrac{y^2}{4} + \dfrac{z^2}{9} = 1 \right\} \therefore \text{Elipse}
+    \end{alignat*}
+  \end{minipage}\\[10pt]
+  \> Portanto, a superf\a'icie \a'e um elips\a'oide de altura 6 e di\^ametros 10 e 4.
 \end{tabbing}
-\centerline{|Intersection graph here|}
+
+
+\pagebreak
 
 \subsection{Cilindros}
 Um cilindro \'e um objeto construido atrav\'es de uma curva $\boldsymbol{\gamma}$ no plano e um \^angulo $\alpha$. \\[5pt]
 O cilindro \'e o conjunto de todas as retas que possuem interse\c{c}\~ao com $\boldsymbol{\gamma}$, formando um \^angulo equivalente \`a $\alpha$ com o plano de $\boldsymbol{\gamma}$. \\[10pt]
-Qual \'e a superf\'icie descrita pela equa\c{c}\~ao $x^2 + y^2 = 9$? \\[5pt]
+Qual \'e a superf\a'icie descrita pela equa\c{c}\~ao $x^2 + y^2 = 9$? \\[5pt]
 Qual \'e o objeto geom\'etrico $\{ (x, y, z) \in \mathbb{R}^3 \> | \> x^2 + y^2 = 9 \}$? \\[5pt]
-Resposta: \uline{Cilindro}. O conjunto \'e formado por todos os pontos do espa\c{c}o cuja dist\^ancia ao eixo $z$ \'e $3$. \\[5pt]
-\centerline{|Cilinder graph here|}
+Resposta: \uline{Cilindro}. O conjunto \'e formado por todos os pontos do espa\c{c}o cuja dist\^ancia ao eixo $z$ \'e $3$. \\[-5pt]
+\begin{figure}[!h]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+        view       = {120}{30},
+        axis lines = middle,
+        xlabel     = $x$,
+        ylabel     = $y$,
+        zlabel     = $z$,
+        zmax       = 60,
+        xmax       = 2,
+        xmin       = -1.5,
+        ymax       = 2,
+        ymin       = -1.5,
+        height     = 8cm,
+        width      = 8cm,
+        xtick      = \empty,
+        ytick      = \empty,
+        ztick      = \empty
+      ]
+      \addplot3+ [
+        domain    = 0:2*pi,
+        samples   = 100,
+        samples y = 0,
+        mark      = none,
+        red,
+      ]
+      ( {cos(deg(x))}, {sin(deg(x))}, {0} );
+      \addplot3+ [
+        domain    = 0:2*pi,
+        samples   = 100,
+        samples y = 0,
+        mark      = none,
+        red,
+      ]
+      ( {cos(deg(x))}, {sin(deg(x))}, {10} );
+      \addplot3+ [
+        domain    = 0:2*pi,
+        samples   = 100,
+        samples y = 0,
+        mark      = none,
+        red,
+      ]
+      ( {cos(deg(x))}, {sin(deg(x))}, {20} );
+      \addplot3+ [
+        domain    = 0:2*pi,
+        samples   = 100,
+        samples y = 0,
+        mark      = none,
+        red,
+      ]
+      ( {cos(deg(x))}, {sin(deg(x))}, {30} );
+      \addplot3+ [
+        domain    = 0:2*pi,
+        samples   = 100,
+        samples y = 0,
+        mark      = none,
+        red,
+      ]
+      ( {cos(deg(x))}, {sin(deg(x))}, {40} );
+
+      \draw [red, dashed] (axis cs: 1, 0, 0)  |- (axis cs: 1, 0, 40);
+      \draw [red, dashed] (axis cs: -1, 0, 0) |- (axis cs: -1, 0, 40);
+      \draw [red, dashed] (axis cs: 0, 1, 0)  |- (axis cs: 0, 1, 40);
+      \draw [red, dashed] (axis cs: 0, -1, 0) |- (axis cs: 0, -1, 40);
+
+      \draw (axis cs: 0, 0, 40) -- (axis cs: 1, 0, 40);
+      \draw (axis cs: 0, 0, 40) -- (axis cs: -0.7, 0.7, 40);
+      \draw (axis cs: 0, 0, 40) -- (axis cs: -0.7, -0.7, 40);
+      \draw (axis cs: 0, 0, 0) -- (axis cs: -0.7, 0.7, 0);
+      \draw (axis cs: 0, 0, 0) -- (axis cs: -0.7, -0.7, 0);
+      \draw (axis cs: 0, 0, 0) -- (axis cs: 0.7, -0.7, 0);
+      \draw (axis cs: 0, 0, 0) -- (axis cs: 0.7, 0.7, 0);
+      
+      \node at (0.2, -0.3, 45) {3};
+    \end{axis}
+  \end{tikzpicture}
+\end{figure}
 
 \subsection{Qu\'adricas}
-As superf\'icies qu\'adricas s\~ao solu\c{c}\~oes de equa\c{c}\~oes da forma
+As superf\a'icies qu\'adricas s\~ao solu\c{c}\~oes de equa\c{c}\~oes da forma
 \[ ax^2 + by^2 + cz^2 \> + \> dxy + eyz + fxz \> + \> gx + hy + iz \> + \> j = 0 \]
 
 
