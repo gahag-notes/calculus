@@ -359,4 +359,38 @@ Uma curva polar \'e definida por uma equa\c{c}\~ao entre as coordenadas polares 
 
 
 
+\pagebreak
+\section{Superf\'icies}
+Qual \'e o conjunto solu\c{c}\~ao da equa\c{c}\~ao $x^2 + y^2 + z^2 = 4$? \\[5pt]
+Resposta: uma esfera de raio 2 centrada na origem. \\[5pt]
+\centerline{|sphere graph here|}
+
+\subsection{Estrat\'egias de esbo\c{c}o de superf\'icies no espa\c{c}o}
+Identificar sua interse\c{c}\~ao com planos (cortes) que cobrem todo o espa\c{c}o. \\[5pt]
+\begin{tabbing}
+  Exemplo: \= Elips\'oide $S = \{ (x, y, z) \in \mathbb{R}^3 | \dfrac{x^2}{25} + \dfrac{y^2}{4} + \dfrac{z^2}{9} = 1 \}$ \\[5pt]
+  \> Cortes horizontais: \\[-5pt]
+  \>\begin{minipage}{.5 \textwidth}
+    \begin{align*}
+      C_h &= S \cap \Pi_h\{ \text{Plano horizontal de altura $h$} \} \\
+      &= S \cap \Pi_h\left\{ (x, y, z) \in \mathbb{R}^3 \big| z = h \right\} \\
+      &= \left\{ (x, y, z) \in \mathbb{R}^3 \Bigg| \dfrac{x^2}{25} + \dfrac{y^2}{4} + \dfrac{h^2}{9} = 1 \right\}
+    \end{align*}
+  \end{minipage}
+\end{tabbing}
+\centerline{|Intersection graph here|}
+
+\subsection{Cilindros}
+Um cilindro \'e um objeto construido atrav\'es de uma curva $\boldsymbol{\gamma}$ no plano e um \^angulo $\alpha$. \\[5pt]
+O cilindro \'e o conjunto de todas as retas que possuem interse\c{c}\~ao com $\boldsymbol{\gamma}$, formando um \^angulo equivalente \`a $\alpha$ com o plano de $\boldsymbol{\gamma}$. \\[10pt]
+Qual \'e a superf\'icie descrita pela equa\c{c}\~ao $x^2 + y^2 = 9$? \\[5pt]
+Qual \'e o objeto geom\'etrico $\{ (x, y, z) \in \mathbb{R}^3 \> | \> x^2 + y^2 = 9 \}$? \\[5pt]
+Resposta: \uline{Cilindro}. O conjunto \'e formado por todos os pontos do espa\c{c}o cuja dist\^ancia ao eixo $z$ \'e $3$. \\[5pt]
+\centerline{|Cilinder graph here|}
+
+\subsection{Qu\'adricas}
+As superf\'icies qu\'adricas s\~ao solu\c{c}\~oes de equa\c{c}\~oes da forma
+\[ ax^2 + by^2 + cz^2 \> + \> dxy + eyz + fxz \> + \> gx + hy + iz \> + \> j = 0 \]
+
+
 \end{document}
