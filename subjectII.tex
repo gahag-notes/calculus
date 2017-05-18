@@ -8,6 +8,8 @@
 \usepackage{upgreek}
 \usepackage{pgfplots}
 \usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
 \pgfplotsset{compat=1.11}
 \usetikzlibrary{decorations.markings}
@@ -19,14 +21,14 @@
 \begin{document}
 
 \section{Curvas Parametrizadas}
-De modo geral, podemos descrever uma curva plana por uma \uline{parametriza\c{c}\~ao}:
-\[ \vec{r}(t) = (x(t), y(t)) \qquad \text{onde $x(t)$ e $y(t)$ s\~ao fun\c{c}\~oes da vari\'avel $t$.} \]
+De modo geral, podemos descrever uma curva plana por uma \uline{parametrização}:
+\[ \vec{r}(t) = (x(t), y(t)) \qquad \text{onde $x(t)$ e $y(t)$ são funções da variável $t$.} \]
 Exemplo: \\[-5pt]
 
 $y = 2x \quad \rightarrow \quad \vec{r}(t) = (t, 2t)$
 
 \subsection{Vetor Tangente}
-O vetor \uline{tangente} \`a curva $\vec{r}(t) = (x(t),\, y(t))$ em um ponto $(x(t_\uplambda),\, y(t_\uplambda))$ \'e:
+O vetor \uline{tangente} \`a curva $\vec{r}(t) = (x(t),\, y(t))$ em um ponto $(x(t_\uplambda),\, y(t_\uplambda))$ é:
 \[ \vec{v}(t_\uplambda) = \vec{x}\,'(t_\uplambda)\vec{\dot{\imath}} \> + \> \vec{y}\,'(t_\uplambda)\vec{\dot{\jmath}} \]
 Denota-se $\vec{r}\,'(t_\uplambda)$. \\[5pt]
 Exemplo:
@@ -39,9 +41,9 @@ Vetor tangente \`a curva $\vec{r}(t) = (t,\, 2t)$ no ponto $(3, 6)$:
   \therefore \\
   \vec{v}\,'(3) = \vec{\dot{\imath}} + 2\vec{\dot{\jmath}}
 \end{gather*}
-O respectivo vale para curvas no espa\c{c}o.
+O respectivo vale para curvas no espaço.
 
-\subsection{Gr\'aficos}
+\subsection{Gráficos}
 
 \begin{tabular}{cc}
   $\vec{r}(t) = (\cos t, 0, \sin t)$ & $\vec{r}(t) = (\cos t, \sin t, t)$ \\[5pt]
@@ -110,13 +112,13 @@ O respectivo vale para curvas no espa\c{c}o.
 
 \pagebreak
 \subsection{Comprimento de Curvas}
-O comprimento de uma curva $\boldsymbol{\gamma}(t)$ no plano \'e dado por
+O comprimento de uma curva $\boldsymbol{\gamma}(t)$ no plano é dado por
 \begin{align*}
   l(\boldsymbol{\gamma}(t)) \quad &= \quad
   \lim_{\Delta t \to 0} { \sum_i \sqrt{ {\left(\frac{x(t_{i+1}) - x(t_i)}{\Delta t}\right)}^2 + { \left(\frac {y(t_{i+1}) - y(t_i)}{\Delta t}\right) }^2 } \cdot \Delta t } \\
   &= \quad \int\limits_a^b \sqrt{{(x'(t))}^2 + {(y'(t))}^2} \cdot dt
 \end{align*}
-Para uma curva $\boldsymbol{\gamma}(t)$ no espa\c{c}o, analogamente:
+Para uma curva $\boldsymbol{\gamma}(t)$ no espaço, analogamente:
 \[ l(\boldsymbol{\gamma}(t)) = \int\limits_a^b \sqrt{{(x'(t))}^2 + {(y'(t))}^2 + {(z'(t))}^2} \cdot dt \]
 Exemplo:
 \begin{figure}[!h]
@@ -174,7 +176,7 @@ Logo
 
 \pagebreak
 \section{Coordenadas Polares}
-Um ponto em coordenadas polares \'e definido por um raio e um \^angulo:
+Um ponto em coordenadas polares é definido por um raio e um ângulo:
 \[ p = {(r, \theta)}_{polar} \]
 
 \begin{tabbing}
@@ -197,10 +199,10 @@ Um ponto em coordenadas polares \'e definido por um raio e um \^angulo:
     \end{polaraxis}
   \end{tikzpicture}
 \end{tabbing}
-\underline{Conven\c{c}\~oes}:
+\underline{Convenções}:
 \begin{itemize}
-  \item $\theta > 0$ se medido, a partir do eixo polar, no sentido anti-hor\'ario.
-  \item $\theta < 0$ se medido, a partir do eixo polar, no sentido hor\'ario.
+  \item $\theta > 0$ se medido, a partir do eixo polar, no sentido anti-horário.
+  \item $\theta < 0$ se medido, a partir do eixo polar, no sentido horário.
   \item ${(-r, \theta)}_{polar} = {(r, \theta - \pi)}_{polar}$ \\ [5pt]
     Exemplo: $(-3, \dfrac{\pi}{4}) = (3, \dfrac{5\pi}{4})$ \\
     \begin{tikzpicture}
@@ -228,7 +230,7 @@ Um ponto em coordenadas polares \'e definido por um raio e um \^angulo:
   \item $\forall \theta: {(0, \theta)}_{polar} = 0$
 \end{itemize}
 
-\subsection{Rela\c{c}\~ao Entre Sistemas de Coordenadas}
+\subsection{Relação Entre Sistemas de Coordenadas}
 \begin{figure}[!h]
   \centering
   \begin{tikzpicture}
@@ -276,7 +278,7 @@ Um ponto em coordenadas polares \'e definido por um raio e um \^angulo:
 \end{alignat*}
 
 \subsection{Curvas Polares}
-Uma curva polar \'e definida por uma equa\c{c}\~ao entre as coordenadas polares dos pontos da curva (equa\c{c}\~ao polar). \\
+Uma curva polar é definida por uma equação entre as coordenadas polares dos pontos da curva (equação polar). \\
 
 \begin{tabbing}
   Exemplos: \= $r^2 + e^{r\theta} = 0$ \\[5pt]
@@ -362,8 +364,8 @@ Uma curva polar \'e definida por uma equa\c{c}\~ao entre as coordenadas polares 
 
 
 \pagebreak
-\section{Superf\a'icies}
-Qual \'e o conjunto solu\c{c}\~ao da equa\c{c}\~ao $x^2 + y^2 + z^2 = 4$? \\[5pt]
+\section{Superfícies}
+Qual é o conjunto solução da equação $x^2 + y^2 + z^2 = 4$? \\[5pt]
 Resposta: uma esfera de raio 2 centrada na origem. \\[5pt]
 \centerline{|Uncomment here|}
 %% \begin{figure}[h]
@@ -397,8 +399,8 @@ Resposta: uma esfera de raio 2 centrada na origem. \\[5pt]
 %% \end{figure}
 
 
-\subsection{Estrat\'egias de esbo\c{c}o de superf\a'icies no espa\c{c}o}
-Identificar sua interse\c{c}\~ao com planos (cortes) que cobrem todo o espa\c{c}o. \\[-10pt]
+\subsection{Estratégias de esboço de superfícies no espaço}
+Identificar sua interseção com planos (cortes) que cobrem todo o espaço. \\[-10pt]
 \begin{tabbing}
   Exemplo: \= $S = \left\{ (x, y, z) \in \mathbb{R}^3 \enspace \bigg| \enspace \dfrac{x^2}{25} + \dfrac{y^2}{4} + \dfrac{z^2}{9} = 1 \right\}$ \\[5pt]
   \> Cortes horizontais: \\[-5pt]
@@ -421,18 +423,18 @@ Identificar sua interse\c{c}\~ao com planos (cortes) que cobrem todo o espa\c{c}
       & &&: \enspace \text{Plano yz} \rightarrow S \cap \left\{ x = 0 \right\} \Rightarrow \left\{ (0, y, z) \in \mathbb{R}^3 \enspace \bigg| \enspace \dfrac{y^2}{4} + \dfrac{z^2}{9} = 1 \right\} \therefore \text{Elipse}
     \end{alignat*}
   \end{minipage}\\[10pt]
-  \> Portanto, a superf\a'icie \a'e um elips\a'oide de altura 6 e di\^ametros 10 e 4.
+  \> Portanto, a superfície é um elipsóide de altura 6 e diâmetros 10 e 4.
 \end{tabbing}
 
 
 \pagebreak
 
 \subsection{Cilindros}
-Um cilindro \'e um objeto construido atrav\'es de uma curva $\boldsymbol{\gamma}$ no plano e um \^angulo $\alpha$. \\[5pt]
-O cilindro \'e o conjunto de todas as retas que possuem interse\c{c}\~ao com $\boldsymbol{\gamma}$, formando um \^angulo equivalente \`a $\alpha$ com o plano de $\boldsymbol{\gamma}$. \\[10pt]
-Qual \'e a superf\a'icie descrita pela equa\c{c}\~ao $x^2 + y^2 = 9$? \\[5pt]
-Qual \'e o objeto geom\'etrico $\{ (x, y, z) \in \mathbb{R}^3 \> | \> x^2 + y^2 = 9 \}$? \\[5pt]
-Resposta: \uline{Cilindro}. O conjunto \'e formado por todos os pontos do espa\c{c}o cuja dist\^ancia ao eixo $z$ \'e $3$. \\[-5pt]
+Um cilindro é um objeto construido através de uma curva $\boldsymbol{\gamma}$ no plano e um ângulo $\alpha$. \\[5pt]
+O cilindro é o conjunto de todas as retas que possuem interseção com $\boldsymbol{\gamma}$, formando um ângulo equivalente \`a $\alpha$ com o plano de $\boldsymbol{\gamma}$. \\[10pt]
+Qual é a superfície descrita pela equação $x^2 + y^2 = 9$? \\[5pt]
+Qual é o objeto geométrico $\{ (x, y, z) \in \mathbb{R}^3 \> | \> x^2 + y^2 = 9 \}$? \\[5pt]
+Resposta: \uline{Cilindro}. O conjunto é formado por todos os pontos do espaço cuja distância ao eixo $z$ é $3$. \\[-5pt]
 \begin{figure}[!h]
   \centering
   \begin{tikzpicture}
@@ -512,24 +514,63 @@ Resposta: \uline{Cilindro}. O conjunto \'e formado por todos os pontos do espa\c
   \end{tikzpicture}
 \end{figure}
 
-\subsection{Qu\'adricas}
-As superf\a'icies qu\'adricas s\~ao solu\c{c}\~oes de equa\c{c}\~oes da forma
+\subsection{Quádricas}
+As superfícies quádricas são soluções de equações da forma
 \[ ax^2 + by^2 + cz^2 \> + \> dxy + eyz + fxz \> + \> gx + hy + iz \> + \> j = 0 \]
 
 
-\section{Fun\c{c}\~oes de duas ou mais vari\'aveis}
-Uma fun\c{c}\~ao de 2 vari\'aveis \'e uma fun\c{c}\~ao do tipo
+\section{Funções de duas ou mais variáveis}
+Uma função de 2 variáveis é uma função do tipo
 \[ f: D \rightarrow \mathbb{R} \qquad \text{onde} \> D \subseteq \mathbb{R}^2 \]
 
-\subsection{Gr\'aficos}
-O gr\'afico de uma fun\c{c}\~ao $f: D \rightarrow \mathbb{R}$ de duas vari\'aveis \'e o subconjunto de $\mathbb{R}^3$ formado pelos pontos
+\subsection{Gráficos}
+O gráfico de uma função $f: D \rightarrow \mathbb{R}$ de duas variáveis é o subconjunto de $\mathbb{R}^3$ formado pelos pontos
 \[ (x,\, y,\, f(x, y)) \in \mathbb{R}^3 \qquad \text{onde} \> (x,\, y) \in D \]
 
 
-
-\subsection{Curvas e Superf\a'icies de N\a'ivel}
-Uma curva de n\a'ivel de altura $h$ de uma fun\c{c}\~ao $f: D \rightarrow \mathbb{R}$ \'e o conjunto de pontos $(x, y)$ do plano tais que
+\subsection{Curvas e Superfícies de Nível}
+Uma curva de nível de altura $h$ de uma função $f: D \to \mathbb{R}$ é o conjunto de pontos $(x, y)$ do plano tais que
 \[ f(x,y) = h \]
+
+
+\pagebreak
+
+\subsection{Limite e Continuidade}
+
+\subsubsection{Limite}
+Seja uma função $f: D \rightarrow \mathbb{R}$, então define-se
+\[ \lim_{(x,y) \to (a,b)} f(x,y) = L \]
+Dizemos que $f$ tende a $L$ quando $(x,y)$ tende a $(a,b)$, se $\forall \epsilon > 0$ arbitrário tal que
+\begin{gather*}
+  \text{se} \> \sqrt{ {(x-a)}^2 + {(y-b)}^2 } < \delta \text{, então} \> \exists \delta > 0: \left| f(x,y) - L \right| < \epsilon
+\end{gather*}
+\centerline{|limit properties here|}
+|obs here|\\
+obs da obs:\\
+Se temos uma função $f$ e duas curvas $\gamma$ e $\widetilde\gamma$ no domínio de $f$ tais que
+\begin{gather*}
+  \lim_{t \to 0} \gamma(t) = \lim_{t \to 0} \widetilde\gamma(t) = (a,b) \\
+  \lim_{t \to 0} f(x(t), y(t)) \> \neq \> \lim_{t \to 0} f(\widetilde{x}(t), \widetilde{y}(t))
+\end{gather*}
+Então $\lim\limits_{(x,y) \to (a,b)} f(x,y)$ não existe.
+
+\begin{tabbing}
+  Exemplos:\enspace\= $f(x,y) = 6 \quad \Rightarrow \quad \lim\limits_{(x,y) \to (3,-1)} f(x,y) = 5$ \\
+  \> $f(x,y) = x \quad \Rightarrow \quad \lim\limits_{(x,y) \to (8,-6)} f(x,y) = 8$ \\
+  \> $f(x,y) = \dfrac{x^2 - y^2}{x^2 + y^2} \enspace \left(D: \mathbb{R}^2 - \{ (0,0) \} \right) \quad \Rightarrow \quad \nexists \lim\limits_{(x,y) \to (0,0)} f(x,y) $ |more stuff here| \\
+  \> |example ii here|
+\end{tabbing}
+
+\subsubsection{Continuidade}
+Dizemos que $f$ é contínua em $(a,b)$ se
+\[ \lim_{(x,y) \to (a,b)} f(x,y) = f(a,b) \]
+Dizemos que $f$ é contínua se é contínua em todos os pontos de seu domínio.
+\begin{tabbing}
+  Propriedades: \= A composição de duas funções contínuas é contínua.\\
+  \> $f(x,y) = c$ é contínua.\\
+  \> $f(x,y) = x$ é contínua.\\
+  \> $f(x,y) = y$ é contínua.
+\end{tabbing}
 
 
 
