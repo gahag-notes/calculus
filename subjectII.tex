@@ -12,7 +12,7 @@
 \usepackage[T1]{fontenc}
 
 \pgfplotsset{compat=1.11}
-\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows, decorations.markings}
 \usetikzlibrary{3d}
 \usetikzlibrary{shapes.geometric,decorations.fractals,shadows}
 \usepgfplotslibrary{polar}
@@ -133,6 +133,8 @@ Exemplo:
         width      = 5cm,
         xtick      = \empty,
         ytick      = \empty,
+        xlabel     = $x$,
+        ylabel     = $y$,
         black
       ]
       \addplot [
@@ -540,25 +542,122 @@ Uma curva de nível de altura $h$ de uma função $f: D \to \mathbb{R}$ é o con
 \subsubsection{Limite}
 Seja uma função $f: D \rightarrow \mathbb{R}$, então define-se
 \[ \lim_{(x,y) \to (a,b)} f(x,y) = L \]
-Dizemos que $f$ tende a $L$ quando $(x,y)$ tende a $(a,b)$, se $\forall \epsilon > 0$ arbitrário tal que
-\begin{gather*}
-  \text{se} \> \sqrt{ {(x-a)}^2 + {(y-b)}^2 } < \delta \text{, então} \> \exists \delta > 0: \left| f(x,y) - L \right| < \epsilon
-\end{gather*}
-\centerline{|limit properties here|}
-|obs here|\\
-obs da obs:\\
-Se temos uma função $f$ e duas curvas $\gamma$ e $\widetilde\gamma$ no domínio de $f$ tais que
-\begin{gather*}
-  \lim_{t \to 0} \gamma(t) = \lim_{t \to 0} \widetilde\gamma(t) = (a,b) \\
-  \lim_{t \to 0} f(x(t), y(t)) \> \neq \> \lim_{t \to 0} f(\widetilde{x}(t), \widetilde{y}(t))
-\end{gather*}
-Então $\lim\limits_{(x,y) \to (a,b)} f(x,y)$ não existe.
+Dizemos que $f$ tende a $L$ quando $(x,y)$ tende a $(a,b)$, se $\forall \epsilon > 0$ arbitrário
+\begin{alignat*}{2}
+  &\exists \delta \> : && \> 0 < \delta < \sqrt{ {(x-a)}^2 + {(y-b)}^2 }\\
+                     & && \> \left| f(x,y) - L \right| < \epsilon
+\end{alignat*}
+As seguintes propriedades valem:
+\begin{itemize}
+  \item $\lim\limits_{(x,y)\to(a,b)} (f(x,y) + g(x,y)) = \lim\limits_{(x,y)\to(a,b)} f(x,y) + \lim\limits_{(x,y)\to(a,b)} g(x,y) $\\
+  \item $\lim\limits_{(x,y)\to(a,b)} (f(x,y) - g(x,y)) = \lim\limits_{(x,y)\to(a,b)} f(x,y) - \lim\limits_{(x,y)\to(a,b)} g(x,y) $\\
+  \item $\lim\limits_{(x,y)\to(a,b)} (f(x,y) \cdot g(x,y)) = \lim\limits_{(x,y)\to(a,b)} f(x,y) \> \cdot \lim\limits_{(x,y)\to(a,b)} g(x,y) $\\
+  \item $\lim\limits_{(x,y)\to(a,b)} \left( \dfrac{f(x,y)}{g(x,y)} \right) = \dfrac{\lim\limits_{(x,y)\to(a,b)} f(x,y)}{\lim\limits_{(x,y)\to(a,b)} g(x,y)} $\\
+\end{itemize}
+\vspace{30pt}
+Seja $\gamma(t) = (x(t), y(t))$ qualquer curva parametrizada com
+\[ \lim_{t\to0} \gamma(t) = (\lim_{t\to0} x(t), \lim_{t\to0} y(t)) = (a,b) \]
+Se $\lim\limits_{(x,y)\to(a,b)} f(x,y) = L$, então para toda curva $\gamma$ vale:\\[-5pt]
+\[ \lim_{t\to0} f(x(t), y(t)) = L \]
+\vspace{30pt}\\
+Seja uma função $f$ e duas curvas $\gamma$ e $\widetilde\gamma$ quaisquer no domínio de $f$ tais que
+\[ \lim_{t \to 0} \gamma(t) = \lim_{t \to 0} \widetilde\gamma(t) = (a,b) \]
+Se $\lim\limits_{(x,y) \to (a,b)} f(x,y)$ existe, então pra toda $\gamma$ e $\widetilde\gamma$:\\[-5pt]
+\[ \lim_{t \to 0} f(x(t), y(t)) \> = \> \lim_{t \to 0} f(\widetilde{x}(t), \widetilde{y}(t)) \]
+
+\pagebreak
 
 \begin{tabbing}
-  Exemplos:\enspace\= $f(x,y) = 6 \quad \Rightarrow \quad \lim\limits_{(x,y) \to (3,-1)} f(x,y) = 5$ \\
-  \> $f(x,y) = x \quad \Rightarrow \quad \lim\limits_{(x,y) \to (8,-6)} f(x,y) = 8$ \\
-  \> $f(x,y) = \dfrac{x^2 - y^2}{x^2 + y^2} \enspace \left(D: \mathbb{R}^2 - \{ (0,0) \} \right) \quad \Rightarrow \quad \nexists \lim\limits_{(x,y) \to (0,0)} f(x,y) $ |more stuff here| \\
-  \> |example ii here|
+  Exemplos:\enspace\= $f(x,y) = 6 \quad \Rightarrow \quad \lim\limits_{(x,y) \to (3,-1)} f(x,y) = 5$ \\[10pt]
+  \> $f(x,y) = x \quad \Rightarrow \quad \lim\limits_{(x,y) \to (8,-6)} f(x,y) = 8$ \\[10pt]
+  \> $f(x,y) = \dfrac{x^2 - y^2}{x^2 + y^2} \enspace \left(D: \mathbb{R}^2 - \{ (0,0) \} \right) \quad \Rightarrow \quad \nexists \lim\limits_{(x,y) \to (0,0)} f(x,y) $ pois: \\[5pt]
+  \>\quad\begin{minipage}{400px}
+      Seja $\gamma(t) = (t, 0)$ a reta sobre o eixo $x$, e $\widetilde{\gamma}(t) = (0, t)$ a reta sobre o eixo $y$.
+      \begin{alignat*}{4}
+        \lim_{t\to0} f(x(t), y(t)) &= \lim_{t\to0} f(t, 0) &&= \lim_{t\to0} \frac{t^2 - 0^2}{t^2 + 0^2} &&= 1\\[5pt]
+        \lim_{t\to0} f(\widetilde{x}(t), \widetilde{y}(t)) &= \lim_{t\to0} f(0, t) &&= \lim_{t\to0} \frac{0^2 - t^2}{0^2 + t^2} &&= -1
+      \end{alignat*}
+      \[ 1 \neq -1 \]
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = center,
+            xmax       = 1.5,
+            xmin       = -1.5,
+            ymax       = 1.5,
+            ymin       = -1.5,
+            height     = 4cm,
+            width      = 4cm,
+            xtick      = \empty,
+            ytick      = \empty,
+            xlabel     = $x$,
+            ylabel     = $y$,
+            black
+          ]
+          \draw [red, ->, >=stealth] (1,0) -- (0.2, 0);
+          \draw [red, ->, >=stealth] (-1,0) -- (-0.2, 0);
+          
+          \draw [teal, ->, >=stealth] (0,1) -- (0, 0.2);
+          \draw [teal, ->, >=stealth] (0,-1) -- (0, -0.2);
+          
+          \node [red] at (0.6, -0.3) {$\gamma$};
+          \node [teal] at (0.3, 0.6) {$\widetilde{\gamma}$};
+        \end{axis}
+      \end{tikzpicture}
+    \end{minipage} \\[10pt]
+  \> $f(x,y) = \dfrac{xy^2}{x^2 + y^4} \enspace \left(D: \mathbb{R}^2 - \{ (0,0) \} \right) \quad \Rightarrow \quad \nexists \lim\limits_{(x,y) \to (0,0)} f(x,y) $ pois: \\[5pt]
+  \>\quad\begin{minipage}{400px}
+      Seja $\gamma(t) = (t, \alpha t)$, e $\widetilde{\gamma}(t) = (t^2, t)$.
+      \begin{alignat*}{4}
+        \lim_{t\to0} f(x(t), y(t)) &= \lim_{t\to0} f(t, \alpha t) &&= \lim_{t\to0} \frac{t \cdot{(\alpha t)}^2}{t^2 + {(\alpha t)}^4} &&= 0\\[5pt]
+        \lim_{t\to0} f(\widetilde{x}(t), \widetilde{y}(t)) &= \lim_{t\to0} f(t^2, t) &&= \lim_{t\to0} \frac{t^2 \cdot {(t)}^2}{{(t^2)}^2 + t^4} &&= \frac{1}{2}
+      \end{alignat*}
+      \[ 0 \neq \frac{1}{2} \]
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+            axis lines = center,
+            xmax       = 1,
+            xmin       = -0.2,
+            ymax       = 1,
+            ymin       = -0.2,
+            height     = 4cm,
+            width      = 4cm,
+            xtick      = \empty,
+            ytick      = \empty,
+            xlabel     = $x$,
+            ylabel     = $y$,
+            black
+          ]
+          \addplot [
+            domain = 0 : 0.5,
+            samples = 10,
+            postaction={
+              decorate,
+              decoration={
+                markings,
+                mark = at position 0.5 with {\arrow{<}}
+              }
+            },
+            teal
+          ] {x};
+          \addplot [
+            domain = 0 : 0.65,
+            samples = 10,
+            postaction={
+              decorate,
+              decoration={
+                markings,
+                mark = at position 0.5 with {\arrow{<}}
+              }
+            },
+            red
+          ] ({x^2}, {x});
+          \node [teal] at (0.4, 0.2) {$\gamma$};
+          \node [red] at (0.2, 0.6) {$\widetilde{\gamma}$};
+        \end{axis}
+      \end{tikzpicture}
+    \end{minipage} \\[10pt]
 \end{tabbing}
 
 \subsubsection{Continuidade}
