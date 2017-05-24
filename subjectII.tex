@@ -671,6 +671,66 @@ Dizemos que $f$ é contínua se é contínua em todos os pontos de seu domínio.
   \> $f(x,y) = y$ é contínua.
 \end{tabbing}
 
+\pagebreak
+
+\subsection{Plano tangente}
+As aproximação linear de uma função corresponde a seguinte tabela:\\[5pt]
+\begin{tabular}{cll}
+  $f$ & 1 variável & 2 variáveis \\
+  tangente & reta & plano \\
+  aproximação & $f \approx cte \cdot x + cte$ & $f \approx cte \cdot x + cte \cdot y + cte$
+\end{tabular}\\[10pt]
+\centerline{|tangent graph here|}\\[5pt]
+O plano tangente a um ponto $p(a, b, f(a,b))$ do gráfico de $f$ deve conter todas as retas tangentes ao gráfico de $f$ em $p$.
+
+\subsubsection{Equação}
+\centerline{|Calc graph here|}
+Dado uma função $f$ e um ponto $(a, b, f(a,b))$:\\
+A reta tangente ao ponto em relação a $x$ é:
+\[ \begin{cases}
+  y = b\\
+  z - f(a,b) = f_x(a, b) \cdot (x - a)
+\end{cases} \]
+A reta tangente ao ponto em relação a $y$ é:
+\[ \begin{cases}
+  x = a\\
+  z - f(a,b) = f_y(a, b) \cdot (y - b)
+\end{cases} \]
+Portanto, a equação de um plano tangente ao ponto é:
+\[ z - f(a,b) = f_x(a, b) \cdot(x - a) + f_y(a, b) \cdot(y - b) \] \\[10pt]
+Exemplo: Se $f(x, y) = \sqrt{1 - x^2 - y^2}$, o plano $\pi$ tangente no ponto $\left(\dfrac{1}{2}, \dfrac{1}{2}, \dfrac{\sqrt{2}}{2}\right)$ é:
+\begin{gather*}
+  f_x(x, y) = \frac{-2x}{\sqrt{1 - x^2 - y^2}} \Rightarrow f_x\left( \frac{1}{2}, \frac{1}{2} \right) = - \frac{\sqrt{2}}{2} \\
+  f_y(x, y) = \frac{-2y}{\sqrt{1 - x^2 - y^2}} \Rightarrow f_y\left( \frac{1}{2}, \frac{1}{2} \right) = - \frac{\sqrt{2}}{2} \\[10pt]
+  \pi : z - \frac{\sqrt{2}}{2} = - \frac{\sqrt{2}}{2} \cdot \left( x - \frac{1}{2} \right) - \frac{\sqrt{2}}{2} \cdot \left( y - \frac{1}{2} \right)
+\end{gather*}
+\centerline{|Counter example here|}
+
+
+\subsection{Diferenciabilidade}
+Dizemos que $f(x,y)$ é diferenciável em $(a,b)$ se
+\[ \lim_{(x,y) \to (a,b)} \frac{\Big| f(x,y) - \left[f(a,b) + f_x(a,b) \cdot (x - a) + f_y(a,b) \cdot (y - b) \right] \Big|}
+                             {\sqrt{ {(x - a)}^2 + {(y - b)}^2 }}
+   = 0
+\]
+Teorema: Se $f_x$ e $f_y$ são contínuas em $(a, b)$ então $f$ é diferenciável em $(a,b)$. \\[10pt]
+Quando $f$ é diferenciável em $(a,b)$, dizemos que
+\[ L_{(a,b)}(x,y) = f(a,b) + f_x(a,b) \cdot (x - a) + f_y(a,b) \cdot (y - b) \]
+é a melhor aproximação linear de $f$ ao redor de $(a,b)$. \\[10pt]
+Obs.: O gráfico de $L_{(a,b)}$ é o plano tangente ao gráfico de $f$ em $(a,b, f(a,b))$.\\[10pt]
+\begin{tabbing}
+  Exemplo: \=Se $f(x,y) = x^2y + y^3$, então\\[-5pt]
+  \>\begin{minipage}{400px}
+    \begin{flalign*}
+      &f_x(x,y) = 2xy&&\\
+      &f_y(x,y) = x^2 + 3y^2&&
+    \end{flalign*}\\[-35pt]
+    \begin{flalign*}
+      L_{(-2,1)}(x,y) &= f(-2, 1) + f_x(-2, 1)\cdot(x - (-2)) + f_y(-2,1)\cdot(y - 1)&&\\
+      &= 5 + (-4)\cdot(x + 2) + 7(y - 1) = -4x + 7y - 10&&
+    \end{flalign*}
+  \end{minipage}
+\end{tabbing}
 
 
 \end{document}
