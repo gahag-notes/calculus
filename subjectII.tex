@@ -7,6 +7,8 @@
 \usepackage{amssymb}
 \usepackage{upgreek}
 \usepackage{pgfplots}
+\usepackage{qtree}
+\usepackage{calc}
 \usepackage[normalem]{ulem}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -671,40 +673,118 @@ Dizemos que $f$ é contínua se é contínua em todos os pontos de seu domínio.
   \> $f(x,y) = y$ é contínua.
 \end{tabbing}
 
+
 \pagebreak
+
+
+\subsection{Derivadas Parciais}
+A derivada parcial de uma função de $n$ variáveis $f(\lambda_1, \hdots, \lambda_n)$ com relação a uma variável $\lambda_\alpha$, no ponto $(a_1, \> \hdots \> , a_n)$ é:
+\[ \lim_{\Delta \lambda_\alpha \to 0} \frac{f(a_1, \> \hdots \> , a_\alpha + \Delta \lambda_\alpha, \> \hdots \> , a_n) - f(a_1, \> \hdots \> , a_n)}{\Delta \lambda_\alpha} \]
+Para uma função de 2 variáveis $f(x,y)$ no ponto $(a, b)$, por exemplo:
+\begin{align*}
+  \text{Em relação a}\ x:& \quad \lim_{\Delta x \to 0} \frac{f(a + \Delta x, b) - f(a, b)}{\Delta x} \\[5pt]
+  \text{Em relação a}\ y:& \quad \lim_{\Delta y \to 0} \frac{f(a + \Delta y, b) - f(a, b)}{\Delta y}
+\end{align*}
+Há três nomenclaturas convencionais, para a variável x por exemplo:
+\begin{itemize}
+\item{\makebox[2cm][l]{$\dfrac{\delta f}{\delta x} (a,b)$} Fração indicando a variável sobre qual foi a derivada parcial.}
+\item{\makebox[2cm][l]{$f_x(a, b)$} Em ordem $\leftarrow$, subscrito em $f$ a variável sobre qual foi a derivada parcial.}
+\item{\makebox[2cm][l]{$D_1f(a,b)$} Em ordem $\rightarrow$, subscrito em $D$ o índice da variável sobre qual foi a derivada parcial.}
+\end{itemize}
+
+\subsubsection{Cálculo operacional da dervivada parcial}
+Para derivar parcialmente com relação a uma variável, basta considerar as demais como constantes e derivar normalmente.\\[5pt]
+Exemplo: $f(x,y) = x^2y + e^{xy}$
+\begin{align*}
+  & \Rightarrow f_x(x,y) = (2x)y + e^{xy} \cdot y = 2xy + ye{xy}&& \\[5pt]
+  & \Rightarrow f_y(x,y) = x^2 \cdot 1 + e^{xy}\cdot x = x^2 + xe^{xy} &&
+\end{align*}
+
+\subsubsection{Derivadas de ordem superior}
+Derivando-se parcialmente duas ou mais vezes, se obtem uma derivida de ordem superior:\\[5pt]
+\begin{minipage}{\textwidth-60pt}
+  \centering
+  \Tree[.$f(x,y)$ [.$f_x(x,y)$ [.$f_{xx}(x,y)$ ]
+                               [.$f_{yx}(x,y)$ ] ]                
+                  [.$f_y(x,y)$ [.$f_{yy}(x,y)$ ]
+                               [.$f_{xy}(x,y)$ ] ] ]
+\end{minipage}\\[5pt]
+\begin{tabbing}
+Exemplo:\ \=$f(x,y) = x^2y + e^{xy}$\\
+\>\begin{minipage}{.4 \linewidth}
+    \begin{flalign*}
+      f_{yx}(x, y) &= \frac{\delta}{\delta y} f_x(x,y) &&\\
+      &= \frac{\delta}{\delta y} \left( 2xy + ye^{xy} \right) &&\\
+      &= 2x + 1 \cdot e^{xy} + y \cdot e^{xy} \cdot x &&\\
+      &= 2x + e^{xy}(xy + 1)
+    \end{flalign*}
+  \end{minipage}
+  \begin{minipage}{.4 \linewidth}
+    \begin{flalign*}
+      f_{xy}(x, y) &= \frac{\delta}{\delta x} f_y(x,y) &&\\
+      &= \frac{\delta}{\delta x} \left( x^2 + xe^{xy} \right) &&\\
+      &= 2x + 1 \cdot e^{xy} + x \cdot e^{xy} \cdot y &&\\
+      &= 2x + e^{xy}(xy + 1)
+    \end{flalign*}
+  \end{minipage}
+\end{tabbing}
+\vspace{5pt}
+Teorema de Clairaut-Schwarz: Se $f_{xy}(x, y)$ e $f_{yx}(x, y)$ são funções contínuas, então
+\[ f_{xy}(x, y) = f_{yx}(x, y) \]
+
+
+\pagebreak
+
 
 \subsection{Plano tangente}
 As aproximação linear de uma função corresponde a seguinte tabela:\\[5pt]
-\begin{tabular}{cll}
+\begin{tabular}{c|ll}
   $f$ & 1 variável & 2 variáveis \\
   tangente & reta & plano \\
-  aproximação & $f \approx cte \cdot x + cte$ & $f \approx cte \cdot x + cte \cdot y + cte$
+  aproximação & $f \approx ax + b$ & $f \approx ax + by + c$
 \end{tabular}\\[10pt]
-\centerline{|tangent graph here|}\\[5pt]
-O plano tangente a um ponto $p(a, b, f(a,b))$ do gráfico de $f$ deve conter todas as retas tangentes ao gráfico de $f$ em $p$.
+O plano tangente a um ponto $p = (a, b, f(a,b))$ do gráfico de $f$ deve conter todas as retas tangentes ao gráfico de $f$ em $p$.
 
 \subsubsection{Equação}
-\centerline{|Calc graph here|}
-Dado uma função $f$ e um ponto $(a, b, f(a,b))$:\\
-A reta tangente ao ponto em relação a $x$ é:
+Dado uma função $f$ e um ponto $(a, b, f(a,b))$:\\[5pt]
+\indent A reta tangente ao ponto em relação a $x$ é:
 \[ \begin{cases}
   y = b\\
   z - f(a,b) = f_x(a, b) \cdot (x - a)
 \end{cases} \]
-A reta tangente ao ponto em relação a $y$ é:
+\indent A reta tangente ao ponto em relação a $y$ é:
 \[ \begin{cases}
   x = a\\
   z - f(a,b) = f_y(a, b) \cdot (y - b)
 \end{cases} \]
-Portanto, a equação de um plano tangente ao ponto é:
-\[ z - f(a,b) = f_x(a, b) \cdot(x - a) + f_y(a, b) \cdot(y - b) \] \\[10pt]
-Exemplo: Se $f(x, y) = \sqrt{1 - x^2 - y^2}$, o plano $\pi$ tangente no ponto $\left(\dfrac{1}{2}, \dfrac{1}{2}, \dfrac{\sqrt{2}}{2}\right)$ é:
-\begin{gather*}
-  f_x(x, y) = \frac{-2x}{\sqrt{1 - x^2 - y^2}} \Rightarrow f_x\left( \frac{1}{2}, \frac{1}{2} \right) = - \frac{\sqrt{2}}{2} \\
-  f_y(x, y) = \frac{-2y}{\sqrt{1 - x^2 - y^2}} \Rightarrow f_y\left( \frac{1}{2}, \frac{1}{2} \right) = - \frac{\sqrt{2}}{2} \\[10pt]
-  \pi : z - \frac{\sqrt{2}}{2} = - \frac{\sqrt{2}}{2} \cdot \left( x - \frac{1}{2} \right) - \frac{\sqrt{2}}{2} \cdot \left( y - \frac{1}{2} \right)
-\end{gather*}
-\centerline{|Counter example here|}
+\indent Portanto, o plano tangente ao ponto é o plano determinado pelas duas retas. Sua equação é:
+\[ z - f(a,b) = f_x(a, b) \cdot(x - a) + f_y(a, b) \cdot(y - b) \]
+\vspace{-5pt}
+\begin{tabbing}
+  Exemplos: \=Se $f(x, y) = \sqrt{1 - x^2 - y^2}$, o plano $\pi$ tangente no ponto $\left(\dfrac{1}{2}, \dfrac{1}{2}, \dfrac{\sqrt{2}}{2}\right)$ é: \\
+  \>\begin{minipage}{300pt}
+    \begin{gather*}
+      f_x(x, y) = \frac{-2x}{\sqrt{1 - x^2 - y^2}} \Rightarrow f_x\left( \frac{1}{2}, \frac{1}{2} \right) = - \frac{\sqrt{2}}{2} \\
+      f_y(x, y) = \frac{-2y}{\sqrt{1 - x^2 - y^2}} \Rightarrow f_y\left( \frac{1}{2}, \frac{1}{2} \right) = - \frac{\sqrt{2}}{2} \\[10pt]
+      \pi : z - \frac{\sqrt{2}}{2} = - \frac{\sqrt{2}}{2} \cdot \left( x - \frac{1}{2} \right) - \frac{\sqrt{2}}{2} \cdot \left( y - \frac{1}{2} \right)
+    \end{gather*}
+  \end{minipage}\\[20pt]
+  \>Se $ f(x,y) = \begin{cases}
+                    \dfrac{xy}{x^2 + y^2} & (x,y) \neq (0,0) \\[5pt]
+                    0 & (x,y) = (0,0)
+                  \end{cases} $ \\
+  \>\begin{minipage}{270pt}
+      \begin{align*}
+        &\Rightarrow f(0,0) = 0 \\[5pt]
+        &\Rightarrow f_x(0,0) = f_y(0,0) = 0 \\[5pt]
+        &\Rightarrow \pi : z - 0 = 0 \cdot (x - 0) + 0 \cdot (y - 0) = 0
+      \end{align*}
+    \end{minipage} \\[5pt]
+  \>\quad $\pi = 0$ é o plano tangente de $f$? \uline{Não}, pois a $f$ sequer é contínua no ponto (0,0):\\[5pt]
+  \>\begin{minipage}{235pt}
+    \[ \lim_{t \to 0} f(t, t) = \lim_{t \to 0} \frac{t^2}{t^2 + t^2} = \frac{1}{2} \neq 0 \]
+  \end{minipage}
+\end{tabbing}
 
 
 \subsection{Diferenciabilidade}
