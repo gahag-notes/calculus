@@ -813,4 +813,43 @@ Obs.: O gráfico de $L_{(a,b)}$ é o plano tangente ao gráfico de $f$ em $(a,b,
 \end{tabbing}
 
 
+\subsection{Regra da cadeia}
+A regra da cadeia para funções de duas variáveis é $(f \circ g)(x) = f(g(x))$. Sua derivada é:
+\[ (f \circ g)'(x) = f'(g(x)) \cdot g'(x) \]
+Para funções de 3 variáveis, temos:
+\begin{tabbing}
+  $1^{\text{o}}$\ caso: \= $f: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$\\
+  \>$g: \mathbb{R} \rightarrow \mathbb{R}$\\
+  \>$h: \mathbb{R} \rightarrow \mathbb{R}$\\[5pt]
+  \> Teorema: Se $f$, $g$ e $h$ são funções diferenciáveis, então $F(t) = f(g(t), h(t))$ é diferenciável e\\[5pt]
+  \>\begin{minipage}{400pt}
+      \[ F'(t) = f_x(g(t), h(t)) \cdot g'(t) + f_y(g(t), h(t)) \cdot h'(t) \]
+  \end{minipage}
+\end{tabbing}
+\begin{tabbing}
+  $2^{\text{o}}$\ caso: \= $f: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$\\
+  \>$g: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$\\
+  \>$h: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$\\[5pt]
+  \> Teorema: Se $f$, $g$ e $h$ são funções diferenciáveis, então $F(x, y) = f(g(x, y), h(x, y))$ é diferenciável e\\
+  \>\begin{minipage}{400pt}
+      \begin{align*}
+        F_x(x,y) &= f_x(g(x,y),\ h(x,y)) \cdot g_x(x,y) \\
+        &+ f_y(g(x,y),\ h(x,y)) \cdot h_x(x,y) \\[5pt]
+        F_y(x,y) &= f_x(g(x,y),\ h(x,y)) \cdot g_y(x,y) \\
+        &+ f_y(g(x,y),\ h(x,y)) \cdot h_y(x,y)
+      \end{align*}
+  \end{minipage}
+\end{tabbing}
+\pagebreak
+\begin{tabbing}
+  Exemplo:\= $f_x(x,y) = 3x^2y^2$\\
+  \> $f_y(x,y) = 2x^3y$\\[5pt]
+  \> $g_x(x,y) = 2e~{xy}$\\[5pt]
+  \> $h_x(x,y) = y$\\[10pt]
+  \>\begin{minipage}{400pt}
+    \[ F_x(x,y) = 3 \cdot{(e^{2x} + y^3)}^2 \cdot {(xy + 4)}^2 \cdot 2e^{2x} + 2 \cdot {(e^{2x} + y^3)}^3 \cdot (xy + 4) \cdot y \]
+  \end{minipage}
+\end{tabbing}
+
+
 \end{document}
