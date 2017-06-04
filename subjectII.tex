@@ -278,7 +278,7 @@ Um ponto em coordenadas polares é definido por um raio e um ângulo:
 \[ p = {(r,\theta)}_{polar} = {(x, y)}_{ret} \]
 \begin{alignat*}{3}
   &\forall r, \theta &&: {(r, \theta)}_{polar} &&= {(r \cdot \cos \theta,\, r \cdot \sin \theta)}_{ret} \\
-  &\forall x, y &&: {(x, y)}_{ret} &&= {\left(\sqrt{x^2 + y^2},\, \arctan{\frac{y}{x}}\right)}_{ret}
+  &\forall x, y &&: {(x, y)}_{ret} &&= {\left(\sqrt{x^2 + y^2},\, \arctan{\frac{y}{x}}\right)}_{polar}
 \end{alignat*}
 
 \subsection{Curvas Polares}
@@ -371,36 +371,35 @@ Uma curva polar é definida por uma equação entre as coordenadas polares dos p
 \section{Superfícies}
 Qual é o conjunto solução da equação $x^2 + y^2 + z^2 = 4$? \\[5pt]
 Resposta: uma esfera de raio 2 centrada na origem. \\[5pt]
-\centerline{|Uncomment here|}
-%% \begin{figure}[h]
-%%   \centering
-%%   \begin{tikzpicture}
-%%     \begin{axis}[%
-%%         view/h = 45,
-%%         axis equal,
-%%         width=10cm,
-%%         height=10cm,
-%%         axis lines = center,
-%%         xlabel = {$x$},
-%%         ylabel = {$y$},
-%%         zlabel = {$z$},
-%%         ticks=none,
-%%         enlargelimits=0.3,
-%%       ]
-%%       \addplot3[%
-%%         opacity = 0.5,
-%%         surf,
-%%         z buffer = sort,
-%%         samples = 50,
-%%         variable = \u,
-%%         variable y = \v,
-%%         domain = 0:180,
-%%         y domain = 0:360,
-%%       ]
-%%       ({cos(u)*sin(v)}, {sin(u)*sin(v)}, {cos(v)});
-%%     \end{axis}
-%%   \end{tikzpicture}
-%% \end{figure}
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[%
+        view/h = 45,
+        axis equal,
+        width=10cm,
+        height=10cm,
+        axis lines = center,
+        xlabel = {$x$},
+        ylabel = {$y$},
+        zlabel = {$z$},
+        ticks=none,
+        enlargelimits=0.3,
+      ]
+      \addplot3[%
+        opacity = 0.5,
+        surf,
+        z buffer = sort,
+        samples = 50,
+        variable = \u,
+        variable y = \v,
+        domain = 0:180,
+        y domain = 0:360,
+      ]
+      ({cos(u)*sin(v)}, {sin(u)*sin(v)}, {cos(v)});
+    \end{axis}
+  \end{tikzpicture}
+\end{figure}
 
 
 \subsection{Estratégias de esboço de superfícies no espaço}
@@ -420,7 +419,7 @@ Identificar sua interseção com planos (cortes) que cobrem todo o espaço. \\[-
     \begin{alignat*}{2}
       &h > 3   \enspace &&: \enspace S \cap \Pi_h = \varnothing \\[5pt]
       &h = 3   \enspace &&: \enspace S \cap \Pi_3 = \left\{ (0,0,3) \right\} \\[5pt]
-      &h < -3  \enspace &&: \enspace S \cap \Pi_h - \varnothing \\[5pt]
+      &h < -3  \enspace &&: \enspace S \cap \Pi_h = \varnothing \\[5pt]
       &h = -3  \enspace &&: \enspace S \cap \Pi_{-3} = \left\{ (0,0,-3) \right\} \\[5pt]
       &|h| < 3 \enspace &&: \enspace S \cap \Pi_h \\[-5pt]
       & &&: \enspace \text{Plano xz} \rightarrow S \cap \left\{ y = 0 \right\} \Rightarrow \left\{ (x, 0, z) \in \mathbb{R}^3 \enspace \bigg| \enspace \dfrac{x^2}{25} + \dfrac{z^2}{9} = 1 \right\} \therefore \text{Elipse} \\
@@ -570,7 +569,7 @@ Se $\lim\limits_{(x,y) \to (a,b)} f(x,y)$ existe, então pra toda $\gamma$ e $\w
 \pagebreak
 
 \begin{tabbing}
-  Exemplos:\enspace\= $f(x,y) = 6 \quad \Rightarrow \quad \lim\limits_{(x,y) \to (3,-1)} f(x,y) = 5$ \\[10pt]
+  Exemplos:\enspace\= $f(x,y) = 5 \quad \Rightarrow \quad \lim\limits_{(x,y) \to (3,-1)} f(x,y) = 5$ \\[10pt]
   \> $f(x,y) = x \quad \Rightarrow \quad \lim\limits_{(x,y) \to (8,-6)} f(x,y) = 8$ \\[10pt]
   \> $f(x,y) = \dfrac{x^2 - y^2}{x^2 + y^2} \enspace \left(D: \mathbb{R}^2 - \{ (0,0) \} \right) \quad \Rightarrow \quad \nexists \lim\limits_{(x,y) \to (0,0)} f(x,y) $ pois: \\[5pt]
   \>\quad\begin{minipage}{400px}
@@ -696,7 +695,7 @@ Há três nomenclaturas convencionais, para a variável x por exemplo:
 Para derivar parcialmente com relação a uma variável, basta considerar as demais como constantes e derivar normalmente.\\[5pt]
 Exemplo: $f(x,y) = x^2y + e^{xy}$
 \begin{align*}
-  & \Rightarrow f_x(x,y) = (2x)y + e^{xy} \cdot y = 2xy + ye{xy}&& \\[5pt]
+  & \Rightarrow f_x(x,y) = (2x)y + e^{xy} \cdot y = 2xy + ye^{xy}&& \\[5pt]
   & \Rightarrow f_y(x,y) = x^2 \cdot 1 + e^{xy}\cdot x = x^2 + xe^{xy} &&
 \end{align*}
 
@@ -764,8 +763,8 @@ Dado uma função $f$ e um ponto $(a, b, f(a,b))$:\\[5pt]
   Exemplos: \=Se $f(x, y) = \sqrt{1 - x^2 - y^2}$, o plano $\pi$ tangente no ponto $\left(\dfrac{1}{2}, \dfrac{1}{2}, \dfrac{\sqrt{2}}{2}\right)$ é: \\
   \>\begin{minipage}{300pt}
     \begin{gather*}
-      f_x(x, y) = \frac{-2x}{\sqrt{1 - x^2 - y^2}} \Rightarrow f_x\left( \frac{1}{2}, \frac{1}{2} \right) = - \frac{\sqrt{2}}{2} \\
-      f_y(x, y) = \frac{-2y}{\sqrt{1 - x^2 - y^2}} \Rightarrow f_y\left( \frac{1}{2}, \frac{1}{2} \right) = - \frac{\sqrt{2}}{2} \\[10pt]
+      f_x(x, y) = - \frac{x}{\sqrt{1 - x^2 - y^2}} \Rightarrow f_x\left( \frac{1}{2}, \frac{1}{2} \right) = - \frac{\sqrt{2}}{2} \\
+      f_y(x, y) = - \frac{y}{\sqrt{1 - x^2 - y^2}} \Rightarrow f_y\left( \frac{1}{2}, \frac{1}{2} \right) = - \frac{\sqrt{2}}{2} \\[10pt]
       \pi : z - \frac{\sqrt{2}}{2} = - \frac{\sqrt{2}}{2} \cdot \left( x - \frac{1}{2} \right) - \frac{\sqrt{2}}{2} \cdot \left( y - \frac{1}{2} \right)
     \end{gather*}
   \end{minipage}\\[20pt]
