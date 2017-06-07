@@ -1,0 +1,40 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{upgreek}
+\usepackage{pgfplots}
+\usepackage{qtree}
+\usepackage{calc}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\pgfplotsset{compat=1.11}
+\usetikzlibrary{arrows, decorations.markings}
+\usetikzlibrary{3d}
+\usetikzlibrary{shapes.geometric,decorations.fractals,shadows}
+\usepgfplotslibrary{polar}
+
+
+\begin{document}
+
+\section{Derivada Direcional e Vetor Gradiente}
+\begin{tabbing}
+Seja: \= $f : \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$. \\[5pt]
+  \> $P = (a, b)$ um ponto no domínio de $f$. \\[5pt]
+  \> $\vec{v} = (v_x, v_y)$ um vetor unitário. \\[5pt]
+  \> $r(t) = (a + v_x \cdot t, \enspace b + v_y \cdot t)$ uma reta direcionada por $\vec{v}$ que passa pelo ponto $P$.
+\end{tabbing}
+\vspace{10pt}
+A derivada de $f$ no ponto $P$ na direção de $\vec{v}$ é
+\[ f_{\vec{v}}(a,b) = f_x(a,b) \cdot v_x + f_y(a,b) \cdot v_y \] \\
+O vetor gradiente de $f$ no ponto $P$ é
+\[ \nabla f(a,b) = f_x(a,b) \cdot \vec{i} + f_y(a,b) \cdot \vec{j} \]
+Portanto, vale que $f_{\vec{v}}(a,b) = \langle \nabla f(a,b), \enspace \vec{v} \, \rangle$. \\[20pt]
+Teorema: A direção em que $f$ tem a maior taxa de variação é a do vetor gradiente.
+
+\end{document}
