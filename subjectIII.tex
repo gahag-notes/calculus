@@ -22,18 +22,34 @@
 
 \begin{document}
 
+
 \section{Derivada Direcional e Vetor Gradiente}
 \begin{tabbing}
 Seja: \= $f : \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}$. \\[5pt]
   \> $P = (a, b)$ um ponto no domínio de $f$. \\[5pt]
-  \> $\vec{v} = (v_x, v_y)$ um vetor unitário.
+  \> $\vec{v} = (v_x, v_y)$ um vetor \uline{unitário}.
 \end{tabbing}
 \vspace{10pt}
 A derivada de $f$ no ponto $P$ na direção de $\vec{v}$ é
 \[ f_{\vec{v}}(a,b) = f_x(a,b) \cdot v_x + f_y(a,b) \cdot v_y \] \\
 O vetor gradiente de $f$ no ponto $P$ é
 \[ \nabla f(a,b) = f_x(a,b) \cdot \vec{i} + f_y(a,b) \cdot \vec{j} \]
-Portanto, vale que $f_{\vec{v}}(a,b) = \langle \nabla f(a,b), \enspace \vec{v} \, \rangle$. \\[20pt]
-Teorema: A direção em que $f$ tem a maior taxa de variação é a do vetor gradiente.
+Portanto, vale que $f_{\vec{v}}(a,b) = \langle \nabla f(a,b), \enspace \vec{v} \, \rangle$. Notando que $\vec{v}$ é unitário, então
+\[ \langle \nabla f(a,b), \enspace \vec{v} \, \rangle \enspace = \enspace  ||\nabla f(a,b)|| \cdot  ||\vec{v}|| \cdot \cos \theta \enspace = \enspace  ||\nabla f(a,b)|| \cdot \cos \theta \] \\
+Então, quando $\theta = 0$, a derivada direcional é a maior possível, e quando $\theta = \pi$ a derivada direcional é a menor possível. \\[20pt]
+\uline{Teorema}: A direção em que $f$ tem a maior taxa de variação é a do vetor gradiente.
+
+
+
+\section{Pontos Críticos e Pontos Extremais Locais}
+Dizemos que $P = (a,b)$ é um ponto máximo ou mínimo (extremal) \uline{local} se existir um disco ao redor de $P$ tal que para todo ponto $(x,y)$ no disco, vale
+\begin{align*}
+  f(x,y) \leq f(a,b) & \text{\qquad(máximo)} \\
+  f(x,y) \geq f(a,b) & \text{\qquad(mínimo)}
+\end{align*}
+Se $P$ é extremal, então $\nabla f(a,b) = \vec{0}$, e portanto $f_{\vec{v}}(a,b) = 0$. \\[10pt]
+Dizemos que $P$ é um ponto crítico de $f$ se $\nabla f(a,b) = \vec{0}$. \\[10pt]
+Obs.: Um ponto crítico pode \uline{não} ser extremal.
+
 
 \end{document}
