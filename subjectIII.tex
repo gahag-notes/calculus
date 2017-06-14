@@ -51,5 +51,31 @@ Se $P$ é extremal, então $\nabla f(a,b) = \vec{0}$, e portanto $f_{\vec{v}}(a,
 Dizemos que $P$ é um ponto crítico de $f$ se $\nabla f(a,b) = \vec{0}$. \\[10pt]
 Obs.: Um ponto crítico pode \uline{não} ser extremal.
 
+\subsection{Discriminante}
+Se $P$ é um ponto crítico de $f$, então o discriminante de $f$ no ponto $P$ é
+\[
+  D(a,b) = \Bigg | \begin{bmatrix}
+                    f_{xx}(a,b) & f_{xy}(a,b) \\
+                    f_{xy}(a,b) & f_{yy}(a,b)
+                   \end{bmatrix} \Bigg |
+\]
+\begin{tabbing}
+  \uline{Teorema}: \= Se $D(a,b) > 0$, então $(a,b)$ é um ponto extremal. \\[5pt]
+  \> Se $D(a,b) < 0$, então $(a,b)$ é um ponto de sela.
+\end{tabbing}
+\begin{tabbing}
+  \uline{Teorema}: \= Se $(a,b)$ é um ponto extremal \\[5pt]
+  \>\begin{minipage}{\linewidth}
+      \begin{itemize}
+        \setlength\itemsep{2px}
+        \item Se $f_{xx}(a,b) > 0$, então $(a,b)$ é um ponto mínimo local.
+        \item Se $f_{xx}(a,b) < 0$, então $(a,b)$ é um ponto máximo local.
+      \end{itemize}
+    \end{minipage}
+\end{tabbing}
+
+
+\pagebreak
+
 
 \end{document}
