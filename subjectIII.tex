@@ -36,7 +36,7 @@ O vetor gradiente de $f$ no ponto $P$ é
 \[ \nabla f(a,b) = f_x(a,b) \cdot \vec{i} + f_y(a,b) \cdot \vec{j} \]
 Portanto, vale que $f_{\vec{v}}(a,b) = \langle \nabla f(a,b), \enspace \vec{v} \, \rangle$. Notando que $\vec{v}$ é unitário, então
 \[ \langle \nabla f(a,b), \enspace \vec{v} \, \rangle \enspace = \enspace  ||\nabla f(a,b)|| \cdot  ||\vec{v}|| \cdot \cos \theta \enspace = \enspace  ||\nabla f(a,b)|| \cdot \cos \theta \] \\
-Então, quando $\theta = 0$, a derivada direcional é a maior possível, e quando $\theta = \pi$ a derivada direcional é a menor possível. \\[20pt]
+Quando $\theta = 0$, a derivada direcional é a maior possível, e quando $\theta = \pi$, a derivada direcional é a menor possível. \\[20pt]
 \uline{Teorema}: A direção em que $f$ tem a maior taxa de variação é a do vetor gradiente.
 
 
@@ -51,18 +51,19 @@ Se $P$ é extremal, então $\nabla f(a,b) = \vec{0}$, e portanto $f_{\vec{v}}(a,
 Dizemos que $P$ é um ponto crítico de $f$ se $\nabla f(a,b) = \vec{0}$. \\[10pt]
 Obs.: Um ponto crítico pode \uline{não} ser extremal.
 
-\subsection{Discriminante}
-Se $P$ é um ponto crítico de $f$, então o discriminante de $f$ no ponto $P$ é
-\[
-  D(a,b) = \Bigg | \begin{bmatrix}
-                    f_{xx}(a,b) & f_{xy}(a,b) \\
-                    f_{xy}(a,b) & f_{yy}(a,b)
-                   \end{bmatrix} \Bigg |
-\]
+\subsection{Hessiana e discriminante}
+A matriz \uline{hessiana} de uma função $f$ em um ponto $(a,b)$ é
+\[ H_f(a,b) = \begin{bmatrix}
+                f_{xx}(a,b) & f_{xy}(a,b) \\
+                f_{xy}(a,b) & f_{yy}(a,b)
+              \end{bmatrix} \] \\[5pt]
+Se $(a,b)$ é um ponto crítico de $f$, então o \uline{discriminante} de $f$ no ponto $(a,b)$ é
+\[ D_f(a,b) = \big | H_f(a,b) \big | \] \\[-15pt]
 \begin{tabbing}
   \uline{Teorema}: \= Se $D(a,b) > 0$, então $(a,b)$ é um ponto extremal. \\[5pt]
   \> Se $D(a,b) < 0$, então $(a,b)$ é um ponto de sela.
 \end{tabbing}
+\vspace{-3pt}
 \begin{tabbing}
   \uline{Teorema}: \= Se $(a,b)$ é um ponto extremal \\[5pt]
   \>\begin{minipage}{\linewidth}
@@ -74,8 +75,19 @@ Se $P$ é um ponto crítico de $f$, então o discriminante de $f$ no ponto $P$ �
     \end{minipage}
 \end{tabbing}
 
-
 \pagebreak
+
+\subsection{Máximos e mínimos em conjuntos compactos}
+Um conjunto $C$ é compacto se
+\begin{itemize}
+  \item $C$ é \uline{limitado}: o conjunto pode ser inteiramente contido em um disco.
+  \[ \exists\, m: \forall (x,y) \in C: \sqrt{x^2 + y^2} < m \]
+  
+  \item $C$ é \uline{fechado}: toda sequência \textbf{convergente} $(y_n, x_n) \in C$ possui limite pertencente a $C$. (Borda)
+  \[ \forall (x_n, y_n) \in C: \lim_{n \to \infty} (x_n, y_n) \in C \]
+\end{itemize}
+\vspace{5pt}
+\uline{Teorema}: Se $f$ é uma função contínua e $C$ é um conjunto compacto, então $f$ tem extremais globais em $C$.
 
 
 \end{document}
